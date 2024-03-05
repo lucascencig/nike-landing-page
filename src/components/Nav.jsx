@@ -3,7 +3,6 @@ import { hamburger } from '../assets/icons'
 import { navLinks } from '../constants'
 import { useState } from 'react'
 
-
 const Nav = () => {
 
   const [navOpen, setNavOpen] = useState(false)
@@ -35,20 +34,33 @@ const Nav = () => {
           <img onClick={toggleNav} src={hamburger} alt='Hamburger' width={25} height={25} />
         </div>
         {
-          navOpen &&
+          navOpen ?
 
-          (
-            <div className='w-full flex flex-col justify-center min-h-screen border-2 border-red-500 p-2'>
-              <ul className='w-full flex flex-col gap-10 justify-center items-center'>
-                {navLinks.map((item) => (
-                  <li className='w-full' key={item.label}>
-                    <a href={item.href} className='font-montserrat leading-normal text-lg text-slate-gray'>
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>)
+            (
+
+              <div className='fixed top-0 left-0 bg-slate-700 w-full flex flex-col justify-center min-h-screen border-2 p-2'>
+                <a href="/" className='absolute top-5 left-5'>
+                  <img src={headerLogo} alt='Logo' width={130} height={29} />
+                </a>
+                <div className='hidden max-lg:block fixed  top-3 right-5'>
+                  <img onClick={toggleNav} src={hamburger} alt='Hamburger' width={25} height={25} />
+
+                </div>
+
+
+                <ul className='z-10 w-full flex flex-col gap-10 justify-center items-center'>
+                  {navLinks.map((item) => (
+                    <li className='z-10 w-full hover:bg-coral-red h-10 flex justify-center items-center ' key={item.label}>
+                      <a href={item.href} onClick={toggleNav} className='z-10 flex justify-center items-center font-montserrat leading-normal text-lg text-slate-200 font-bold '>
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+            :
+            null
         }
 
 
