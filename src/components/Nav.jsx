@@ -13,8 +13,8 @@ const Nav = () => {
 
 
   return (
-    <header className='padding-x py-8 absolute z-10 w-full'>
-      <nav className='flex justify-between items-center max-container'>
+    <header className='padding-x py-8 fixed z-10 w-full bg-[#ffffff7c] backdrop-blur'>
+      <nav className=' z-10 flex justify-between items-center max-container'>
         <a href="/">
           <img src={headerLogo} alt='Logo' width={130} height={29} />
         </a>
@@ -30,7 +30,7 @@ const Nav = () => {
         </ul>
 
 
-        <div className='hidden max-lg:block fixed  top-3 right-5'>
+        <div className='hidden max-lg:block fixed  top-8 right-8'>
           <img onClick={toggleNav} src={hamburger} alt='Hamburger' width={25} height={25} />
         </div>
         {
@@ -39,10 +39,13 @@ const Nav = () => {
             (
 
               <div className='fixed top-0 left-0 bg-slate-700 w-full flex flex-col justify-center min-h-screen border-2 p-2'>
-                <a href="/" className='absolute top-5 left-5'>
-                  <img src={headerLogo} alt='Logo' width={130} height={29} />
-                </a>
-                <div className='hidden max-lg:block fixed  top-3 right-5'>
+
+                <div className=' z-10 flex justify-between items-center max-container'>
+                  <a href="/" className='absolute top-8 left-8'>
+                    <img src={headerLogo} alt='Logo' width={130} height={29} />
+                  </a>
+                </div>
+                <div className='hidden max-lg:block fixed  top-8 right-8'>
                   <img onClick={toggleNav} src={hamburger} alt='Hamburger' width={25} height={25} />
 
                 </div>
